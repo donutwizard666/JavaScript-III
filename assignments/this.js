@@ -33,7 +33,7 @@ magicObj.sayHello('Albus Dumbledore');
 
 // Principle 3
 
-function wizardPeople(greeter) {
+function WizardPeople(greeter) {
     this.greeting = 'Hello! ';
     this.greeter = greeter;
     this.speak = function() {
@@ -41,27 +41,23 @@ function wizardPeople(greeter) {
         console.log(this);
     };
 }
-const Albus = new wizardPeople('Hermione');
-const Hermione = new wizardPeople('Albus');
+const Albus = new WizardPeople('Hermione');
+const Hermione = new WizardPeople('Albus');
 
-Albus.speak();
-Hermione.speak();
+// Albus.speak();
+// Hermione.speak();
 
 // Principle 4
 
-function wizardPeople(greeter) {
-    this.greeting = 'Hello! ';
-    this.greeter = greeter;
-    this.speak = function() {
-        console.log(this.greeting + this.greeter);
-        console.log(this);
-    };
+let WizardPeople2 = {
+    greeting: 'Hello! ',
+    power: 100,
+    
 }
-const Albus = new wizardPeople('Hermione');
-const Hermione = new wizardPeople('Albus');
 
-Albus.speak.call(Hermione);
-Hermione.speak.apply(Albus);
+let speak = function() {
+    console.log(this.greeting);
+    console.log(this.power);
+};
 
-Albus.speak();
-Hermione.speak();
+speak.call(WizardPeople2);
